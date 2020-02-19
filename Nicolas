@@ -1,0 +1,311 @@
+package edu.co.unac.trabajo1;
+
+public class Lasagna {
+
+	protected String sabor;
+	protected Double precio;
+	
+	public Lasagna(String sabor, Double precio) {
+		this.sabor = sabor;
+		this.precio = precio;	
+	}
+
+	public String getSabor() {
+		return sabor;
+	}
+
+	public void setSabor(String sabor) {
+		this.sabor = sabor;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+	
+}
+
+
+package edu.co.unac.trabajo2;
+
+public class Pastas {
+
+	protected String sabor;
+	protected Double precio;
+	
+	public Pastas(String sabor, Double precio) {
+		this.sabor = sabor;
+		this.precio = precio;	
+	}
+
+	public String getSabor() {
+		return sabor;
+	}
+
+	public void setSabor(String sabor) {
+		this.sabor = sabor;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+	
+}
+
+package edu.co.unac.trabajo3;
+
+public class Pizza {
+	
+	protected String sabor;
+	protected Double precio;
+	
+	public Pizza(String sabor, Double precio) {
+		this.sabor = sabor;
+		this.precio = precio;	
+	}
+
+	public String getSabor() {
+		return sabor;
+	}
+
+	public void setSabor(String sabor) {
+		this.sabor = sabor;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+	
+}
+
+package edu.co.unac.trabajo4;
+
+public class Bebida {
+	
+	protected String tamano;
+	protected String sabor;
+	protected Double precio;
+	
+	public Bebida(String tamano, String sabor, Double precio) {
+		this.precio = precio;
+		this.sabor = sabor;
+		this.tamano = tamano;
+	}
+
+	public String getTamano() {
+		return tamano;
+	}
+
+	public void setTamano(String tamano) {
+		this.tamano = tamano;
+	}
+
+	public String getSabor() {
+		return sabor;
+	}
+
+	public void setSabor(String sabor) {
+		this.sabor = sabor;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+	
+}
+
+
+package edu.co.unac.trabajo;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import java.util.Scanner;
+
+import edu.co.unac.trabajo3.Pizza;
+import edu.co.unac.trabajo1.Lasagna;
+import edu.co.unac.trabajo2.Pastas;
+import edu.co.unac.trabajo4.Bebida;
+import edu.co.unac.trabajo5.Combo;
+
+public class Main {
+
+	 int valorTotal=0;
+	
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Welcome to restaurant");
+		System.out.println(" ");
+		
+		System.out.println("Menú: ");
+		
+		System.out.println("Tenemos Lasagna, Pastas, pizza");
+		
+		System.out.println("Manejamos combos también");
+		
+		System.out.println("Para conocer nuestro menú seleccione 1");
+			
+		switch(s.nextInt()) {
+		
+		 case 1:
+			 System.out.println("Lasagna");
+			 System.out.println("");
+			 
+			Lasagna l = new Lasagna("Carne", 8000.0);
+			Lasagna l1 = new Lasagna("pollo", 9000.0);
+			Lasagna l2 = new Lasagna("Carbe", 10000.0 );	
+				List<Lasagna> lasagnas = new ArrayList<>();
+				lasagnas.add(l);
+				lasagnas.add(l1);	
+				lasagnas.add(l2);
+				
+				System.out.println("Sabor: " + lasagnas.get(0).getSabor() +" y el precio: "+ lasagnas.get(0).getPrecio());
+				System.out.println("Sabor: " + lasagnas.get(1).getSabor() +" y el precio: "+ lasagnas.get(1).getPrecio());
+				System.out.println("Sabor: " + lasagnas.get(2).getSabor() +" y el precio: "+ lasagnas.get(2).getPrecio());
+				System.out.println("");
+				
+			 System.out.println("Pastas");
+			 System.out.println("");
+			 
+			Pastas p = new Pastas("carne molida", 7000.0);
+			Pastas p1 = new Pastas("pollo desmechado", 8000.0);
+			Pastas p2 = new Pastas("vongole", 9000.0);	
+			
+				List<Pastas> pastas = new ArrayList<>();
+				pastas.add(p);
+				pastas.add(p1);	
+				pastas.add(p2);
+				System.out.println("Sabor: " + pastas.get(0).getSabor() +" y el precio: "+ pastas.get(0).getPrecio());
+				System.out.println("Sabor: " + pastas.get(1).getSabor() +" y el precio: "+ pastas.get(1).getPrecio());
+				System.out.println("Sabor: " + pastas.get(2).getSabor() +" y el precio: "+ pastas.get(2).getPrecio());
+				System.out.println("");
+			
+										
+			 System.out.println("pizza");
+			 System.out.println("");
+			 
+			 Pizza i = new Pizza("hawaiana", 5000.0);
+			 Pizza i1 = new Pizza("ranchera", 7000.0);
+			 Pizza i2 = new Pizza("pepperoni", 6000.0);	
+	
+				List<Pizza> pizzotas = new ArrayList<>();
+				pizzotas.add(i);
+				pizzotas.add(i1);	
+				pizzotas.add(i2);
+				
+				System.out.println("Sabor: " + pizzotas.get(0).getSabor() +" y el precio: "+ pizzotas.get(0).getPrecio());
+				System.out.println("Sabor: " + pizzotas.get(1).getSabor() +" y el precio: "+ pizzotas.get(1).getPrecio());
+				System.out.println("Sabor: " + pizzotas.get(2).getSabor() +" y el precio: "+ pizzotas.get(2).getPrecio());
+				System.out.println("");
+				
+
+			 System.out.println(" Ofrecemos combos con bebidas.");
+			 System.out.println("Aqui esta el tamaño, sabor y precio de las bebidas que manejamos.");
+			 System.out.println("  ");
+			 
+			 Bebida b = new Bebida("Grande", "manzana", 4000.0);
+			 Bebida b1 = new Bebida("Mediana", "coca-cola", 2000.0);
+			 Bebida b2 = new Bebida("Pequeña", "quatro", 1000.0);
+			 
+			 List<Bebida> bebidas = new ArrayList<>();
+			 bebidas.add(b);
+			 bebidas.add(b1);
+			 bebidas.add(b2);
+			 
+			 System.out.println("Su tamaño es " + bebidas.get(0).getTamano() + " , el sabor de " +bebidas.get(0).getSabor() + " y el precio es " +bebidas.get(0).getPrecio()) ;
+			 System.out.println("Su tamaño es " + bebidas.get(1).getTamano() + " , el sabor de " +bebidas.get(1).getSabor() + " y el precio es " +bebidas.get(1).getPrecio())  ;
+			 System.out.println("Su tamaño es " + bebidas.get(1).getTamano() + " , el sabor de " +bebidas.get(2).getSabor() + " y el precio es " +bebidas.get(2).getPrecio()) ;
+			 System.out.println("");
+			 
+			 
+			 
+			 System.out.println("Precio del combo de lasagna con gaseosa");
+			 System.out.println("");
+			 
+			 List<Combo> combos = new ArrayList<>();
+			 	for (Lasagna h : lasagnas) {
+			 		Combo combo =new Combo();
+			 		combo.setLasagna(h);
+			 		combos.add(combo);
+			 	}
+			 	
+			 	for(int i11 = 0; i11 < lasagnas.size(); i11++) {
+			 		combos.get(i11).setBebida(bebidas.get(i11));
+			 		
+			 	}
+			 	for(Combo c: combos) {
+			 		
+			 		System.out.println("Lasagna de " +c.getLasagna().getSabor() + " Bebida " + c.getBebida().getTamano() +(",")+ c.getBebida().getSabor() + " el precio total es: " + (c.getBebida().getPrecio()+c.getLasagna().getPrecio()));
+			 	System.out.println("");
+			 	
+			 			
+			 	}
+
+			 
+				
+				 System.out.println("Precio del combo de pastas con gaseosa");
+				 System.out.println("");
+
+				 List<Combo> combos1 = new ArrayList<>();
+				 for (Pastas a : pastas) {
+					 Combo combo1 =new Combo();
+					 combo1.setPastas(a);
+					 combos1.add(combo1);
+	}
+	
+				 for(int i12 = 0; i12 < pastas.size(); i12++) {
+					 combos1.get(i12).setBebida(bebidas.get(i12));
+		
+	}
+				 for(Combo c: combos1) {
+		
+					 System.out.println("Pastas de " +c.getPastas().getSabor() + " Bebida " + c.getBebida().getTamano() +(",")+ c.getBebida().getSabor() + " el precio total es: " + (c.getBebida().getPrecio()+c.getPastas().getPrecio()));
+					 System.out.println("");
+	}
+							
+					
+				 System.out.println("Precio del combo de pizza con gaseosa:");
+				 System.out.println("");
+	 
+				 List<Combo> combos2 = new ArrayList<>();
+				 for (Pizza h : pizzotas) {
+					 Combo combo2 =new Combo();
+					 combo2.setPizza(h);
+					 combos2.add(combo2);
+		}
+		
+				 for(int i13 = 0; i13 < pizzotas.size(); i13++) {
+					 combos2.get(i13).setBebida(bebidas.get(i13));
+			
+		}
+				 for(Combo c: combos2) {
+			
+					 System.out.println("Pizza de " +c.getPizza().getSabor() + " Bebida " + c.getBebida().getTamano() +(",")+ c.getBebida().getSabor() + " el precio total es: " + (c.getBebida().getPrecio()+c.getPizza().getPrecio()));
+					 System.out.println("");
+		}
+				 
+				
+			 System.out.println("Esto es todo");
+			
+			 }
+			 	 
+		 }		
+}	
