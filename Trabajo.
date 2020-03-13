@@ -1,0 +1,276 @@
+//Clase Estudiante
+
+package unac.edu.coo1;
+public class Estudiante {
+	protected Integer id;
+	protected String name;
+	
+	public Estudiante(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}
+
+//Clase Materia
+
+package unac.edu.coo;
+
+public class Materia {
+
+	protected String nameM;
+	protected String nameProf;
+	protected String nameStudent;
+
+	public Materia(String nameM, String nameProf, String nameStudent) {
+		this.nameM = nameM;
+		this.nameProf = nameProf;	
+		this.nameStudent = nameStudent;
+	}
+
+	public String getNameM() {
+		return nameM;
+	}
+
+	public void setNameM(String nameM) {
+		this.nameM = nameM;
+	}
+
+	public String getNameProf() {
+		return nameProf;
+	}
+
+	public void setNameProf(String nameProf) {
+		this.nameProf = nameProf;
+	}
+
+	public String getNameStudent() {
+		return nameStudent;
+	}
+
+	public void setNameStudent(String nameStudent) {
+		this.nameStudent = nameStudent;
+	}
+	
+}
+
+//Clase Calificación
+package unac.edu.coo12;
+
+import unac.edu.co13.Falla;
+
+public class Calificacion {
+	
+	protected float nota;
+	
+	public Calificacion() {
+	}
+	
+	public Calificacion(float nota) {
+		this.nota = nota;
+		
+	}
+
+	public float getNota() {
+		return nota;
+	}
+
+	public void setNota(float nota) {
+		this.nota = nota;
+	}
+	
+	public void ponerCalificacion(Float p) throws Falla {
+		
+		if (p >= 0  && p <= 5  ) {
+	
+			this.nota = p;
+		}else {
+			throw new Falla ("Coloco una nota que no corresponde, RECUERDA ES DE 0 A 5");
+		}
+	}
+ }
+
+//Clase Falla
+
+package unac.edu.co13;
+
+
+public class Falla extends Exception{
+	
+	
+	
+	protected String Message;
+	
+	public Falla( String Message) {
+		this.Message = Message;
+		
+	}
+	 public String getMessage() {
+	 	return Message;
+	 }	 
+}
+  
+  // Clase Main
+  
+  package unac.edu.co.poomain;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import unac.edu.co13.Falla;
+import unac.edu.coo.Materia;
+import unac.edu.coo1.Estudiante;
+import unac.edu.coo12.Calificacion;
+
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+
+	public static void main(String[] args) throws Falla   {
+		
+		Scanner in = new Scanner(System.in);
+		Integer op;
+		
+		Materia m = new Materia("Ingles", "Alberto Gonzales", "Kaka Gomez");
+		Materia m1 = new Materia("Ecuaciones diferenciales", "Roberto Nitales", "James Urrega");
+		Materia m2 = new Materia("Algebra", "Alex Lamido", "Falcao Risales");
+		
+		
+		List<Materia> materias = new ArrayList<>();
+		materias.add(m);
+		materias.add(m1);
+		materias.add(m2);
+		
+		
+		Estudiante e = new Estudiante(10239920, "Kaka Gomez");
+		Estudiante e1 = new Estudiante(10239920, "James Urrega");
+		Estudiante e2 = new Estudiante(10239920, "Falcao Risales");
+	
+		
+		List<Estudiante> estudiantes = new ArrayList<>();
+		estudiantes.add(e);
+		estudiantes.add(e1);
+		estudiantes.add(e2);
+		
+		Calificacion c = new Calificacion();
+		
+		HashMap <String , Float> notas = new HashMap<>();
+		
+		
+		
+		do{				
+				
+					System.out.println("Bienvenidos a la universidad");
+					System.out.println("");
+		
+					System.out.println("¿Eres profesor o estudiante?");
+					System.out.println("");
+					System.out.println("1 profesor; 2 estudiante");
+					switch (in.nextInt()) {
+			
+					case 1: 
+						System.out.println("Bienvenidos profesores");
+						System.out.print("");
+				
+						System.out.println("Vamos a ingresar las notas de los jovenes Kaka, James y Falcao");
+						System.out.println("");
+						
+						System.out.println("Ingrese 1 para empezar");
+						
+						switch (in.nextInt()) {
+						
+				
+						case 1:
+							
+							
+							
+						
+								for(Materia t: materias) {
+								
+									System.out.println("Hola profesor " + t.getNameProf() );
+								
+									for(Estudiante es: estudiantes) {
+									
+										System.out.print("\nEl alumno es el joven " + es.getName() + "\n La materia es " + t.getNameM());
+										System.out.println("");
+							
+										System.out.println("Asigne la nota de la pobre alma: ");
+									
+										
+										System.out.println("\n nota: ");
+										try {
+										
+											c.ponerCalificacion(in.nextFloat());
+											
+										
+											notas.put("Alumno: " + es.getName() + " \nMateria: " + t.getNameM() + " Nota ", c.getNota());
+										}
+
+										
+											catch(Error ee) {
+											
+											ee.getMessage();
+											
+											
+										}
+									}
+						}
+						
+						}
+						break;
+
+					case 2:
+						System.out.println("Bienvenidsos estudiantes");
+						System.out.print("");	
+			
+						System.out.println("Vamos a mirar las notas de los muchachones");
+						System.out.println("");
+						System.out.println("Ingrese 1 para mirar sus notas");
+						switch (in.nextInt()) {
+			
+						case 1:
+								
+									Set<String> llaves  = notas.keySet();
+									
+									for(String llave: llaves) {
+										
+										Float valor = notas.get(llave);
+										
+										System.out.println( llave + valor );
+										System.out.println("");
+									}
+								
+							
+							
+							break;
+						}
+					}
+				
+		
+				System.out.println("¿Desea continuar? \n 1 para si \n o cualquier otro numero para finalizar.");
+				
+				op = in.nextInt();
+
+		}while(op == 1);
+		System.out.println("Ahora si se acabo esta vuelta.");
+	
+}
+}
