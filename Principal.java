@@ -2,7 +2,7 @@ package unac.edu.co;
 
 import java.util.Scanner;
 
-public class Principal {
+public class PrincipalFinalPunto10 {
     public static void main(String[] args ){
         //nombres
         Scanner a = new Scanner(System.in);
